@@ -5,7 +5,7 @@ const execp = promisify(exec);
 
 (async () => {
   try {
-    const { stdout, stderr } = await execp("ls");
+    const { stdout, stderr } = await execp(`echo Hello World`);
     console.log(`stdout: ${stdout}`);
     console.log(`stderr: ${stderr}`);
   } catch (err) {
