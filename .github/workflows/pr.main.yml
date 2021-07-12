@@ -34,14 +34,12 @@ jobs:
     - name: Extract branch name
       shell: bash
       run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-      id: extract_branch
 
-    - name: Git Commit/Push Changes
+    - name: GitHub Commit & Push
       if: steps.changes.outputs.changed == 1
-      uses: github-actions-x/commit@v2.8
+      uses: actions-js/push@v1.2
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        push-branch: ${{ steps.extract_branch.outputs.branch }}
-        commit-message: '${{ matrix.node-version }} adds auto-generated benchmarks and bar graph'
-        rebase: 'true' #
-        
+        message: ts build changes
+        # Destination branch to push changes
+        branch: ${{ steps.extract_branch.outputs.branch }}
+
