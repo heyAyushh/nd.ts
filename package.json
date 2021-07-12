@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "main": "./dist/index.js",
   "bin": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "author": "heyAyushh",
   "bugs": {
     "url": "https://github.com/heyAyushh/n.ts/issues"
