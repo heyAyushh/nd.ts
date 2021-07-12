@@ -34,8 +34,7 @@ jobs:
         
     - name: GitHub Commit & Push
       if: steps.changes.outputs.changed == 1
-      uses: stefanzweifel/git-auto-commit-action@v4.11.0
+      uses: actions-x/commit@v2
       with:
-        commit_message: ts build changes
+        message: ts build changes
         branch: ${{ github.head_ref }}
-      
