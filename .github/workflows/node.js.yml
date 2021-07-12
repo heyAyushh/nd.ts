@@ -14,7 +14,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x, 16.x]
+        node-version: [14.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -25,9 +25,21 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install
-    - run: npm run build --if-present
+
+    - name: Check build existence
+      id: check_files
+      uses: andstor/file-existence-action@v1
+      with:
+        files: "dist/index.d.ts, dist/index.js"
+
+    - name: File exists
+      if: steps.check_files.outputs.files_exists == 'false'
+      run: npm run build
+
     - name: Git Commit/Push Changes
+      if: steps.check_files.outputs.files_exists == 'false'
       uses: actions-x/commit@v2
+
     - name: Create Pull Request
       # You may pin to the exact commit or the version.
       # uses: peter-evans/create-pull-request@9825ae65b1cb54b543b938503728b432a0176d29
