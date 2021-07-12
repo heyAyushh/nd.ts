@@ -27,19 +27,15 @@ jobs:
     - run: npm install
     - run: npm run build
 
-    - name: build changes
+    - name: if build changes exists
+      # pr created with ts changes only
       id: changes
       uses: UnicornGlobal/has-changes-action@v1.0.11
-      
-    - name: Extract branch name
-      id: extract_branch
-      shell: bash
-      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         
     - name: GitHub Commit & Push
       if: steps.changes.outputs.changed == 1
       uses: stefanzweifel/git-auto-commit-action@v4.11.0
       with:
         commit_message: ts build changes
-        branch: ${{ steps.extract_branch.outputs.branch }}
+        branch: ${GITHUB_REF##*/}
       
