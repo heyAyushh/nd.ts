@@ -24,6 +24,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: npm install
     - run: npm run build --if-present
     - name: Git Commit/Push Changes
       uses: actions-x/commit@v2
