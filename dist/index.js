@@ -14,7 +14,7 @@ const util_1 = require("util");
 const execp = util_1.promisify(child_process_1.exec);
 (() => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const { stdout, stderr } = yield execp("ls");
+        const { stdout, stderr } = yield execp(`echo Hello World`);
         console.log(`stdout: ${stdout}`);
         console.log(`stderr: ${stderr}`);
     }
