@@ -37,5 +37,5 @@ jobs:
       uses: stefanzweifel/git-auto-commit-action@v4.11.0
       with:
         commit_message: ts build changes
-        branch: ${GITHUB_REF##*/}
+        branch: ${{ github.head_ref }}
       
