@@ -25,19 +25,14 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm install
+    - run: npm run build
 
-    - name: Check build existence
-      id: check_files
-      uses: andstor/file-existence-action@v1
-      with:
-        files: "dist/index.d.ts, dist/index.js"
-
-    - name: File exists
-      if: steps.check_files.outputs.files_exists == 'false'
-      run: npm run build
+    - name: build changes
+      id: changes
+      uses: UnicornGlobal/has-changes-action@v1.0.11
 
     - name: Git Commit/Push Changes
-      if: steps.check_files.outputs.files_exists == 'false'
+      if: steps.changes.outputs.changed == 1
       uses: actions-x/commit@v2
 
     - name: Create Pull Request
