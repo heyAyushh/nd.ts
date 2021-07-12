@@ -36,4 +36,4 @@ jobs:
       if: steps.changes.outputs.changed == 1
       uses: stefanzweifel/git-auto-commit-action@v4.11.0
       with:
-        message: ts build changes
+        commit_message: ts build changes
