@@ -34,16 +34,3 @@ jobs:
     - name: Git Commit/Push Changes
       if: steps.changes.outputs.changed == 1
       uses: actions-x/commit@v2
-
-    - name: Create Pull Request
-      # You may pin to the exact commit or the version.
-      # uses: peter-evans/create-pull-request@9825ae65b1cb54b543b938503728b432a0176d29
-      uses: peter-evans/create-pull-request@v3.10.0
-      with:
-        # GITHUB_TOKEN or a `repo` scoped Personal Access Token (PAT)
-        # The pull request branch name.
-        branch: release
-        delete-branch: false
-        title: actions - PR with Main branch artifacts
-        # The body of the pull request.
-        body: Incoming changes from building main branch
