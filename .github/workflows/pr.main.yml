@@ -32,14 +32,14 @@ jobs:
       uses: UnicornGlobal/has-changes-action@v1.0.11
       
     - name: Extract branch name
+      id: extract_branch
       shell: bash
       run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-
+        
     - name: GitHub Commit & Push
       if: steps.changes.outputs.changed == 1
-      uses: actions-js/push@v1.2
+      uses: stefanzweifel/git-auto-commit-action@v4.11.0
       with:
-        message: ts build changes
-        # Destination branch to push changes
+        commit_message: ts build changes
         branch: ${{ steps.extract_branch.outputs.branch }}
-
+      
