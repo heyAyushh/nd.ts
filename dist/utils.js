@@ -21,7 +21,7 @@ const ascii = () => {
     let colorsIndex = 0;
     let data;
     try {
-        data = figlet_1.default.textSync("n.ts", {
+        data = figlet_1.default.textSync("nd.ts", {
             font: "Slant Relief",
             horizontalLayout: "default",
             verticalLayout: "default",

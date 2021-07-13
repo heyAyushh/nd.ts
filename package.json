@@ -1,5 +1,5 @@
 {
-  "name": "n.ts",
+  "name": "nd.ts",
   "description": "generate bare minimum node typescript setup asap",
   "version": "1.0.0",
   "main": "./dist/index.js",
@@ -7,7 +7,7 @@
   "types": "./dist/index.d.ts",
   "author": "heyAyushh",
   "bugs": {
-    "url": "https://github.com/heyAyushh/n.ts/issues"
+    "url": "https://github.com/heyAyushh/nd.ts/issues"
   },
   "devDependencies": {
     "@types/figlet": "^1.5.4",
@@ -18,11 +18,11 @@
     "nodemon": "^2.0.12",
     "typescript": "^4.3.5"
   },
-  "homepage": "https://github.com/heyAyushh/n.ts#readme",
+  "homepage": "https://github.com/heyAyushh/nd.ts#readme",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/heyAyushh/n.ts.git"
+    "url": "git+https://github.com/heyAyushh/nd.ts.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

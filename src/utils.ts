@@ -19,7 +19,7 @@ export const ascii = () => {
   let data;
 
   try {
-    data = figlet.textSync("n.ts", {
+    data = figlet.textSync("nd.ts", {
       font: "Slant Relief",
       horizontalLayout: "default",
       verticalLayout: "default",
