@@ -1,7 +1,7 @@
 {
   "name": "nd.ts",
   "description": "generate bare minimum node typescript setup asap",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "main": "./dist/index.js",
   "bin": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -9,6 +9,9 @@
   "bugs": {
     "url": "https://github.com/heyAyushh/nd.ts/issues"
   },
+  "files": [
+    "dist/"
+  ],
   "devDependencies": {
     "@types/figlet": "^1.5.4",
     "@types/inquirer": "^7.3.3",
@@ -25,7 +28,7 @@
     "url": "git+https://github.com/heyAyushh/nd.ts.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"no tests exist\"",
     "dev": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\"  \"npm run watch:ts\" \"npm run serve-debug\"",
     "start": "node ./dist/index.js",
     "watch:ts": "tsc -w",
