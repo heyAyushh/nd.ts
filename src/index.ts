@@ -85,7 +85,7 @@ inquirer
             : "npm i"
         }`
       ),
-      copyFile(`${folder_name}/.env.default`,`${folder_name}/.env`);
+      copyFile(`${folder_name}/.env.default`,`${folder_name}/.env`),
     ]);
 
     spinner.succeed(chalk.blueBright("Happy hacking ✨"));
