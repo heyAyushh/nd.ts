@@ -1,5 +1,7 @@
 # nd.ts 🚀
-generate bare minimum node typescript setup asap
+[![build](https://github.com/heyAyushh/nd.ts/actions/workflows/main.build.yml/badge.svg?branch=main)](https://github.com/heyAyushh/nd.ts/actions/workflows/main.build.yml) ![npm](https://img.shields.io/npm/v/nd.ts) ![npm](https://img.shields.io/npm/dm/nd.ts) ![NPM](https://img.shields.io/npm/l/nd.ts)  
+  
+generate bare minimum node typescript setup asap  
 
 ```
 npx nd.ts
