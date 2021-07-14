@@ -6,6 +6,7 @@ import chalk from "chalk";
 import rimraf from "rimraf";
 import inquirer from "inquirer";
 import ora from "ora";
+import fs from "fs";
 
 const execp = promisify(exec);
 const rimrafp = promisify(rimraf);
@@ -20,6 +21,10 @@ type Answers = {
 console.log(ascii());
 
 const spinner = ora();
+
+const copyFile = async (src: string, dest: string) => {
+  await fs.promises.copyFile(src, dest)
+}
 
 inquirer
   .prompt([
@@ -70,14 +75,14 @@ inquirer
     await Promise.all([
       rimrafp(`${folder_name}/.git`),
       execp(
-        `${folder_name === "." ? "" : `cd ${folder_name} &&`} ${
-          package_manager === "pnpm"
-            ? "pnpm i"
-            : package_manager === "yarn"
+        `${folder_name === "." ? "" : `cd ${folder_name} &&`} ${package_manager === "pnpm"
+          ? "pnpm i"
+          : package_manager === "yarn"
             ? "yarn"
             : "npm i"
         }`
       ),
+      copyFile(`${folder_name}/.env.default`, `${folder_name}/.env`),
     ]);
 
     spinner.succeed(chalk.blueBright("Happy hacking ✨"));
