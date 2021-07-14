@@ -6,6 +6,7 @@ import chalk from "chalk";
 import rimraf from "rimraf";
 import inquirer from "inquirer";
 import ora from "ora";
+import fs from "fs";
 
 const execp = promisify(exec);
 const rimrafp = promisify(rimraf);
@@ -20,6 +21,12 @@ type Answers = {
 console.log(ascii());
 
 const spinner = ora();
+
+const fs = require('fs')
+
+const copyFile = async (src, dest) => {
+  await fs.promises.copyFile(src, dest)
+}
 
 inquirer
   .prompt([
@@ -78,6 +85,7 @@ inquirer
             : "npm i"
         }`
       ),
+      copyFile(`${folder_name}/.env.default`,`${folder_name}/.env`);
     ]);
 
     spinner.succeed(chalk.blueBright("Happy hacking ✨"));
