@@ -20,10 +20,14 @@ const chalk_1 = __importDefault(require("chalk"));
 const rimraf_1 = __importDefault(require("rimraf"));
 const inquirer_1 = __importDefault(require("inquirer"));
 const ora_1 = __importDefault(require("ora"));
+const fs_1 = __importDefault(require("fs"));
 const execp = util_1.promisify(child_process_1.exec);
 const rimrafp = util_1.promisify(rimraf_1.default);
 console.log(utils_1.ascii());
 const spinner = ora_1.default();
+const copyFile = (src, dest) => __awaiter(void 0, void 0, void 0, function* () {
+    yield fs_1.default.promises.copyFile(src, dest);
+});
 inquirer_1.default
     .prompt([
     {
@@ -71,6 +75,7 @@ inquirer_1.default
             : package_manager === "yarn"
                 ? "yarn"
                 : "npm i"}`),
+        copyFile(`${folder_name}/.env.default`, `${folder_name}/.env`),
     ]);
     spinner.succeed(chalk_1.default.blueBright("Happy hacking ✨"));
 }))
