@@ -3,7 +3,7 @@ import figlet from "figlet";
 
 export const git_repo_url = "https://github.com/heyayushh/node.ts.git";
 
-export function get_random(list: Array<any>): any {
+export function get_random<T>(list: Array<T>): T {
   return list[Math.floor(Math.random() * list.length)];
 }
 
@@ -13,7 +13,7 @@ export const theme = {
   foreground: "#FFFFFF",
 };
 
-export const ascii = () => {
+export const ascii = (): string => {
   let coloredData = "";
   let colorsIndex = 0;
   let data;
@@ -28,8 +28,8 @@ export const ascii = () => {
     return error;
   }
 
-  for (var i = 0; i < data.length; i++) {
-    var character = data.charAt(i);
+  for (let i = 0; i < data.length; i++) {
+    const character = data.charAt(i);
     if (character !== "_") {
       if (
         data.charAt(i - 1) == "_" ||

@@ -30,8 +30,8 @@ const ascii = () => {
     catch (error) {
         return error;
     }
-    for (var i = 0; i < data.length; i++) {
-        var character = data.charAt(i);
+    for (let i = 0; i < data.length; i++) {
+        const character = data.charAt(i);
         if (character !== "_") {
             if (data.charAt(i - 1) == "_" ||
                 data.charAt(i - 1) == " " ||

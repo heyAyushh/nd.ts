@@ -12,12 +12,31 @@
   "files": [
     "dist/"
   ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\"  \"npm run watch:ts\" \"npm run serve-debug\"",
+    "lint": "eslint . --ext .ts",
+    "start": "node ./dist/index.js",
+    "serve-debug": "nodemon dist/index.js",
+    "test": "echo \"no tests exist\"",
+    "watch:ts": "tsc -w"
+  },
+  "dependencies": {
+    "chalk": "^4.1.1",
+    "figlet": "^1.5.0",
+    "inquirer": "^8.1.1",
+    "ora": "^5.4.1",
+    "rimraf": "^3.0.2"
+  },
   "devDependencies": {
     "@types/figlet": "^1.5.4",
     "@types/inquirer": "^7.3.3",
     "@types/node": "^16.3.1",
     "@types/rimraf": "^3.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.5",
+    "@typescript-eslint/parser": "^4.28.5",
     "concurrently": "^6.2.0",
+    "eslint": "^7.31.0",
     "nodemon": "^2.0.12",
     "typescript": "^4.3.5"
   },
@@ -26,20 +45,5 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/heyAyushh/nd.ts.git"
-  },
-  "scripts": {
-    "test": "echo \"no tests exist\"",
-    "dev": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"cyan.bold,green.bold\"  \"npm run watch:ts\" \"npm run serve-debug\"",
-    "start": "node ./dist/index.js",
-    "watch:ts": "tsc -w",
-    "build": "tsc",
-    "serve-debug": "nodemon dist/index.js"
-  },
-  "dependencies": {
-    "chalk": "^4.1.1",
-    "figlet": "^1.5.0",
-    "inquirer": "^8.1.1",
-    "ora": "^5.4.1",
-    "rimraf": "^3.0.2"
   }
 }
